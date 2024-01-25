@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="BoostExercise_RERM.View.Editar">
+    <Grid RowDefinitions="80,*" BackgroundColor="#2d2d2d">
+        <CollectionView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Margin="10" HorizontalOptions="StartAndExpand">
+                                <!--Source="https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-the-gold-arrow-png-image-png-image_10276853.png"-->
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer />
+                                    <!--Command="{Binding Volvercommand}"-->
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="BoostExercise" FontSize="35"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="1" Margin="10">
+                            <StackLayout>
+                                <Label Text="Dia" TextColor="White" FontAttributes="Bold" FontSize="25" VerticalOptions="Center"/>
+                                <Entry Placeholder="Dia" TextColor="Purple" PlaceholderColor="Gray" TextTransform="None" FontSize="15" HorizontalOptions="StartAndExpand"/>
+                                <!--Text y binding-->
+                            </StackLayout>
+                            <StackLayout>
+                                <Label Text="Hora" TextColor="White" FontAttributes="Bold" FontSize="25" VerticalOptions="Center"/>
+                                <Entry Placeholder="Horas" TextColor="Purple" PlaceholderColor="Gray" TextTransform="None" FontSize="15" HorizontalOptions="StartAndExpand"/>
+                                <!--Text y binding-->
+                            </StackLayout>
+                            <StackLayout>
+                                <Label Text="Duracion" TextColor="White" FontAttributes="Bold" FontSize="25" VerticalOptions="Center"/>
+                                <Entry Placeholder="Duracion en minutos" TextColor="Purple" PlaceholderColor="Gray" TextTransform="None" FontSize="15" HorizontalOptions="StartAndExpand"/>
+                                <!--Text y binding-->
+                            </StackLayout>
+                            <StackLayout>
+                                <Label Text="Tipo de ejercicio" TextColor="White" FontAttributes="Bold" FontSize="25" VerticalOptions="Center"/>
+                                <Entry Placeholder="Tipo de ejercicio" TextColor="Purple" PlaceholderColor="Gray" TextTransform="None" FontSize="15" HorizontalOptions="StartAndExpand"/>
+                                <!--Text y binding-->
+                            </StackLayout>
+                            <StackLayout>
+                                <Label Text="Lugar donde haras ejercicio" TextColor="White" FontAttributes="Bold" FontSize="25" VerticalOptions="Center"/>
+                                <Entry Placeholder="Lugar donde haras ejercicio" TextColor="Purple" PlaceholderColor="Gray" TextTransform="None" FontSize="15" HorizontalOptions="StartAndExpand"/>
+                                <!--Text y binding-->
+                            </StackLayout>
+                            <StackLayout>
+                                <Label Text="Pesas para hacer ejercicio" TextColor="White" FontAttributes="Bold" FontSize="25" VerticalOptions="Center"/>
+                                <Entry Placeholder="Pesas en KG" TextColor="Purple" PlaceholderColor="Gray" TextTransform="None" FontSize="15" HorizontalOptions="StartAndExpand"/>
+                                <!--Text y binding-->
+                            </StackLayout>
+                            <StackLayout>
+                                <Label Text="Peso" TextColor="White" FontAttributes="Bold" FontSize="25" VerticalOptions="Center"/>
+                                <Entry Placeholder="Peso en KG" TextColor="Purple" PlaceholderColor="Gray" TextTransform="None" FontSize="15" HorizontalOptions="StartAndExpand"/>
+                                <!--Text y binding-->
+                            </StackLayout>
+                            <Frame HorizontalOptions="Center" Padding="3" Margin="0,0,0,0" CornerRadius="15" HasShadow="False" BackgroundColor="Gray">
+                                <Button Text="+" HorizontalOptions="Center" BackgroundColor="Gray" BorderColor="LightGray" BorderWidth="6" CornerRadius="15" FontAttributes="Bold" FontSize="25" WidthRequest="60" HeightRequest="60"/>
+                                <!-- Command="{Binding Insertarcommand}"-->
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
