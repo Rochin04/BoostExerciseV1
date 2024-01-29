@@ -11,7 +11,7 @@ namespace BoostExercise_RERM
         {
             InitializeComponent();
 
-            MainPage = new Editar();
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()

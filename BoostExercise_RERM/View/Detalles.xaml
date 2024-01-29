@@ -1,12 +1,66 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BoostExercise_RERM.View.Detalles">
-    <ContentPage.Content>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="BoostExercise_RERM.View.Detalles">
+    <Grid x:Name="Lista" BackgroundColor="Black">
+        <!--<Grid.Background>
+            <!<LinearGradientBrush>
+                <!<GradientStop/>
+            <!</LinearGradientBrush>
+        </Grid.Background>-->
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Image Source="https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-the-gold-arrow-png-image-png-image_10276853.png" HeightRequest="70" HorizontalOptions="Start" Margin="10,20,0,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer/><!-- Command="{Binding Volvercommand}"/-->
+                </Image.GestureRecognizers>
+            </Image>
+            <!--aqui se puede mejorar xddd-->
+            <Grid RowDefinitions="auto,100">
+                <StackLayout Orientation="Horizontal" Margin="10,20,10,10">
+                    <Grid>
+                        <StackLayout Grid.Row="1" Grid.Column="1" Margin="10">
+                            <Label FontSize="25" FontAttributes="Bold" TextColor="White"/>
+                            <!--text={binding-->
+                            <Label Text="Dia" TextColor="Gray" HorizontalOptions="Center"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="1" Grid.Column="2" Margin="10">
+                            <Label FontSize="25" FontAttributes="Bold" TextColor="White"/>
+                            <!--text={binding-->
+                            <Label Text="Dia2" TextColor="Gray" HorizontalOptions="Center"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="1" Grid.Column="3" Margin="10">
+                            <Label FontSize="25" FontAttributes="Bold" TextColor="White"/>
+                            <!--text={binding-->
+                            <Label Text="Dia3" TextColor="Gray" HorizontalOptions="Center"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="1" Grid.Column="4" Margin="10">
+                            <Label FontSize="25" FontAttributes="Bold" TextColor="White"/>
+                            <!--text={binding-->
+                            <Label Text="Dia4" TextColor="Gray" HorizontalOptions="Center"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="2" Grid.Column="1" Margin="10">
+                            <Label FontSize="25" FontAttributes="Bold" TextColor="White"/>
+                            <!--text={binding-->
+                            <Label Text="Dia5" TextColor="Gray" HorizontalOptions="Center"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="2" Grid.Column="2" Margin="10">
+                            <Label FontSize="25" FontAttributes="Bold" TextColor="White"/>
+                            <!--text={binding-->
+                            <Label Text="Dia6" TextColor="Gray" HorizontalOptions="Center"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="2" Grid.Column="3" Margin="10">
+                            <Label FontSize="25" FontAttributes="Bold" TextColor="White"/>
+                            <!--text={binding-->
+                            <Label Text="Dia7" TextColor="Gray" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+            </Grid>
+            <Frame CornerRadius="30" Margin="0,20,0,0" Padding="0" HeightRequest="65" HasShadow="False">
+                <Grid ColumnDefinitions="*,*" BackgroundColor="Red">
+                    <Button Text="Editar" BackgroundColor="Orange" CornerRadius="25" Margin="-5,0,-10,0" FontAttributes="Bold" Grid.Column="0"/><!--Command="{Binding EditarCommand}" CommandParameter="{Binding .}"-->
+                    <Button Text="ELiminar" BackgroundColor="Red" CornerRadius="25" Margin="210,0,-200,0" FontAttributes="Bold"/><!--Command="{Binding EliminarCommand}" CommandParameter="{Binding Txtnro}"/>-->
+                    <Button Text="Completar" BackgroundColor="Green" CornerRadius="25" Margin="210,0,-200,0" FontAttributes="Bold"/>
+                </Grid>
+            </Frame>
         </StackLayout>
-    </ContentPage.Content>
+    </Grid>
 </ContentPage>

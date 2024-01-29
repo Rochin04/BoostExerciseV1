@@ -9,44 +9,166 @@
             <!--</Image>-->
             <Label Text="BoostExercise" FontSize="35" TextColor="White"/>
         </StackLayout>
-        <StackLayout Grid.Row="1" Margin="10">
+        <StackLayout Grid.Row="1" Margin="10" BackgroundColor="Gray">
             <StackLayout>
-                <Label Text="Dia" TextColor="White" FontAttributes="Bold" VerticalOptions="Center" FontSize="25"/>
-                <Entry Placeholder="Dia" TextColor="Purple" PlaceholderColor="Gray" TextTransform="None" HorizontalOptions="StartAndExpand" Keyboard="Numeric"/>
-                <!--Text y binding-->
+                <Label Text="Fecha" TextColor="White" FontAttributes="Bold" VerticalOptions="Center" FontSize="25"/>
+                <DatePicker TextColor="White" Date="{Binding Fecha,Mode=TwoWay}">
+                    <DatePicker.Format>dd/mm/yyyy</DatePicker.Format>
+                </DatePicker>
+                <TimePicker Time="{Binding Hora,Mode=TwoWay}"/>
+                <!--Label Text="{Binding ResultadoFecha}" FontSize="10" TextColor="White"/-->
             </StackLayout>
-            <StackLayout>
-                <Label Text="Hora" TextColor="White" FontAttributes="Bold" VerticalOptions="Center" FontSize="25"/>
-                <Entry Placeholder="Horas" TextColor="Purple" PlaceholderColor="Gray" TextTransform="None" HorizontalOptions="StartAndExpand" />
-                <!--Text y binding-->
-            </StackLayout>
-            <StackLayout>
+            <StackLayout >
                 <Label Text="Duracion" TextColor="White" FontAttributes="Bold" VerticalOptions="Center" FontSize="25"/>
-                <Entry Placeholder="Duracion en minutos" TextColor="Purple" PlaceholderColor="Gray" TextTransform="None" HorizontalOptions="StartAndExpand" Keyboard="Numeric"/>
+                <!--<Entry Placeholder="Duracion en minutos" TextColor="Purple" PlaceholderColor="Gray" TextTransform="None" HorizontalOptions="StartAndExpand" Text="{Binding Duracion}"/>-->
+                <Grid>
+                    <RadioButton Content="10'" TextColor="white" Grid.Row="1" Grid.Column="1" Value="10" IsChecked="{Binding RadioButton10}"/>
+                    <RadioButton Content="15'" TextColor="white" Grid.Row="1" Grid.Column="2" Value="15" IsChecked="{Binding RadioButton15}"/>
+                    <RadioButton Content="20'" TextColor="white" Grid.Row="1" Grid.Column="3" Value="20" IsChecked="{Binding RadioButton20}"/>
+                    <RadioButton Content="25'" TextColor="white" Grid.Row="2" Grid.Column="1" Value="25" IsChecked="{Binding RadioButton25}"/>
+                    <RadioButton Content="30'" TextColor="white" Grid.Row="2" Grid.Column="2" Value="30" IsChecked="{Binding RadioButton30}"/>
+                    <RadioButton Content="35'" TextColor="white" Grid.Row="2" Grid.Column="3" Value="35" IsChecked="{Binding RadioButton35}"/>
+                </Grid>
                 <!--Text y binding-->
             </StackLayout>
             <StackLayout>
                 <Label Text="Tipo de ejercicio" TextColor="White" FontAttributes="Bold"  VerticalOptions="Center" FontSize="25"/>
-                <Entry Placeholder="Tipo de ejercicio" TextColor="Purple" PlaceholderColor="Gray" TextTransform="None" HorizontalOptions="StartAndExpand"/>
+                <!--<Entry Placeholder="Tipo de ejercicio" TextColor="Purple" PlaceholderColor="Gray" TextTransform="None" HorizontalOptions="StartAndExpand" Text="{Binding TipoEjercicio}"/>-->
+                <Grid>
+                    <StackLayout Grid.Row="1" Grid.Column="1">
+                        <Image Source="Abdomen.png" WidthRequest="50" HeightRequest="50" />
+                        <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ImageTappedCommand}" CommandParameter="Barra" />
+                            </StackLayout.GestureRecognizers>
+                        <StackLayout.Triggers>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding ActivationBarra}" Value="True">
+                                <Setter Property="BackgroundColor" Value="White"/>
+                            </DataTrigger>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding ActivationBarra}" Value="False">
+                                <Setter Property="BackgroundColor" Value="Gray"/>
+                            </DataTrigger>
+                        </StackLayout.Triggers>
+                    </StackLayout>
+                    <StackLayout Grid.Row="1" Grid.Column="2">
+                        <Image Source="Barra2.png" WidthRequest="50" HeightRequest="50" />
+                        <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ImageTappedCommand}" CommandParameter="Abdomen" />
+                            </StackLayout.GestureRecognizers>
+                        <StackLayout.Triggers>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding ActivationAbdomen}" Value="True">
+                                <Setter Property="BackgroundColor" Value="White"/>
+                            </DataTrigger>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding ActivationAbdomen}" Value="False">
+                                <Setter Property="BackgroundColor" Value="Gray"/>
+                            </DataTrigger>
+                        </StackLayout.Triggers>
+                    </StackLayout>
+                    <StackLayout Grid.Row="1" Grid.Column="3">
+                        <Image Source="ECardioBici.png" WidthRequest="50" HeightRequest="50"/>
+                        <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ImageTappedCommand}" CommandParameter="CardioBici" />
+                            </StackLayout.GestureRecognizers>
+                        <StackLayout.Triggers>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding ActivationCardioBici}" Value="True">
+                                <Setter Property="BackgroundColor" Value="White"/>
+                            </DataTrigger>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding ActivationCardioBici}" Value="False">
+                                <Setter Property="BackgroundColor" Value="Gray"/>
+                            </DataTrigger>
+                        </StackLayout.Triggers>
+                    </StackLayout>
+                    <StackLayout Grid.Row="2" Grid.Column="1">
+                        <Image Source="EPierna.png" WidthRequest="50" HeightRequest="50"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ImageTappedCommand}" CommandParameter="Pierna" />
+                        </StackLayout.GestureRecognizers>
+                        <StackLayout.Triggers>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding ActivationPierna}" Value="True">
+                                <Setter Property="BackgroundColor" Value="White"/>
+                            </DataTrigger>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding ActivationPierna}" Value="False">
+                                <Setter Property="BackgroundColor" Value="Gray"/>
+                            </DataTrigger>
+                        </StackLayout.Triggers>
+                    </StackLayout>
+                    <StackLayout Grid.Row="2" Grid.Column="2" x:Name="StackPesitas">
+                        <Image Source="Pesitas.png" WidthRequest="50" HeightRequest="50" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ImageTappedCommand}" CommandParameter="Pesita" />
+                        </StackLayout.GestureRecognizers>
+                        <StackLayout.Triggers>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding ActivationPesita}" Value="True">
+                                <Setter Property="BackgroundColor" Value="White"/>
+                            </DataTrigger>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding ActivationPesita}" Value="False">
+                                <Setter Property="BackgroundColor" Value="Gray"/>
+                            </DataTrigger>
+                        </StackLayout.Triggers>
+                    </StackLayout>
+                    <StackLayout Grid.Row="2" Grid.Column="3">
+                        <Image Source="PushUp.png" WidthRequest="50" HeightRequest="50"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ImageTappedCommand}" CommandParameter="PushUp" />
+                        </StackLayout.GestureRecognizers>
+                        <StackLayout.Triggers>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding ActivationPushUp}" Value="True">
+                                <Setter Property="BackgroundColor" Value="White"/>
+                            </DataTrigger>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding ActivationPushUp}" Value="False">
+                                <Setter Property="BackgroundColor" Value="Gray"/>
+                            </DataTrigger>
+                        </StackLayout.Triggers>
+                    </StackLayout>
+                </Grid>
                 <!--Text y binding-->
             </StackLayout>
             <StackLayout>
                 <Label Text="Lugar donde haras ejercicio" TextColor="White" FontAttributes="Bold" VerticalOptions="Center" FontSize="25"/>
-                <Entry Placeholder="Lugar donde haras ejercicio" TextColor="Purple" PlaceholderColor="Gray" TextTransform="None" HorizontalOptions="StartAndExpand"/>
+                <!--<Entry Placeholder="Lugar donde haras ejercicio" TextColor="Purple" PlaceholderColor="Black" TextTransform="None" HorizontalOptions="StartAndExpand" Text="{Binding LugarEjercicio}"/>-->
+                <Grid>
+                    <StackLayout Grid.Row="1" Grid.Column="1">
+                        <Image Source="casa.png" WidthRequest="50" HeightRequest="50" />
+                        <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ImageTappedCommand}" CommandParameter="Casa" />
+                            </StackLayout.GestureRecognizers>
+                        <StackLayout.Triggers>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding ActivationCasa}" Value="True">
+                                <Setter Property="BackgroundColor" Value="White"/>
+                            </DataTrigger>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding ActivationCasa}" Value="False">
+                                <Setter Property="BackgroundColor" Value="Gray"/>
+                            </DataTrigger>
+                        </StackLayout.Triggers>
+                    </StackLayout>
+                    <StackLayout Grid.Row="1" Grid.Column="2">
+                        <Image Source="instalacionesdefitness.png" WidthRequest="50" HeightRequest="50" />
+                        <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ImageTappedCommand}" CommandParameter="Gym" />
+                            </StackLayout.GestureRecognizers>
+                        <StackLayout.Triggers>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding ActivationGYM}" Value="True">
+                                <Setter Property="BackgroundColor" Value="White"/>
+                            </DataTrigger>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding ActivationGYM}" Value="False">
+                                <Setter Property="BackgroundColor" Value="Gray"/>
+                            </DataTrigger>
+                        </StackLayout.Triggers>
+                    </StackLayout>
+                </Grid>
                 <!--Text y binding-->
             </StackLayout>
-            <StackLayout>
+            <!--<StackLayout>
                 <Label Text="Pesas para hacer ejercicio" TextColor="White" FontAttributes="Bold" VerticalOptions="Center" FontSize="25"/>
-                <Entry Placeholder="Pesas en KG" TextColor="Purple" PlaceholderColor="Gray" TextTransform="None" HorizontalOptions="StartAndExpand"/>
-                <!--Text y binding-->
+                <Entry Placeholder="Pesas en KG" TextColor="Purple" PlaceholderColor="Black" TextTransform="None" HorizontalOptions="StartAndExpand" Text="{Binding HerramientaEjercicio}"/>
+                --><!--Text y binding--><!--
             </StackLayout>
             <StackLayout>
                 <Label Text="Peso" TextColor="White" FontAttributes="Bold" VerticalOptions="Center" FontSize="25"/>
-                <Entry Placeholder="Peso en KG" TextColor="Purple" PlaceholderColor="Gray" TextTransform="None" HorizontalOptions="StartAndExpand" Keyboard="Numeric"/>
-                <!--Text y binding-->
-            </StackLayout>
+                <Entry Placeholder="Peso en KG" TextColor="Purple" PlaceholderColor="Black" TextTransform="None" HorizontalOptions="StartAndExpand" Keyboard="Numeric" Text="{Binding PesoKG}"/>
+                --><!--Text y binding--><!--
+            </StackLayout>-->
             <Frame HorizontalOptions="Center" Padding="3" Margin="0,0,0,0" CornerRadius="15" HasShadow="False" BackgroundColor="Gray">
-                <Button Text="+" HorizontalOptions="Center" BackgroundColor="Gray" BorderColor="LightGray" BorderWidth="6" CornerRadius="15" FontAttributes="Bold" FontSize="25" WidthRequest="60" HeightRequest="60"/><!-- Command="{Binding Insertarcommand}"/> -->
+                <Button Text="+" HorizontalOptions="Center" BackgroundColor="Gray" BorderColor="LightGray" BorderWidth="6" CornerRadius="15" FontAttributes="Bold" FontSize="25" WidthRequest="60" HeightRequest="60" Command="{Binding InsertarCommand}"/><!-- Command="{Binding Insertarcommand}"/> -->
             </Frame>
         </StackLayout>
     </Grid>

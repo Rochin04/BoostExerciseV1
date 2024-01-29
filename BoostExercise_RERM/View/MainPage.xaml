@@ -1,32 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="BoostExercise_RERM.MainPage">
-    <Grid BackgroundColor="Black" RowDefinitions="70,*">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="BoostExercise_RERM.MainPage" x:Name="MyPage" BindingContext="{Binding Source={x:Reference MyPage}, Path=BindingContext}">
+    <Grid BackgroundColor="Black" RowDefinitions="100,*">
         <Label Text="Boost Exercise" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" FontSize="30" FontAttributes="Bold" TextColor="White"/>
-        <CollectionView Background="#333" Grid.Row="1" x:Name="List" Margin="0,0,0,0"><!--ItemSource="{Binding ListExercise"}-->
+        <StackLayout>
+            <Label Text="Actividades Completadas" TextColor="White"/>
+            <Label Text="4" TextColor="White"/>
+        </StackLayout>
+            <CollectionView Background="#333" Grid.Row="1" x:Name="List" Margin="0,0,0,0" ItemsSource="{Binding ListBoostE}"><!--ItemSource="{Binding ListExercise"}-->
             <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical" Span="12" HorizontalItemSpacing="10" VerticalItemSpacing="10"/>
+                <GridItemsLayout Orientation="Vertical" Span="1" HorizontalItemSpacing="10" VerticalItemSpacing="10"/>
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid RowDefinitions="100,*" Margin="10,10,0,0">
-                        <Frame Grid.Row="1" WidthRequest="250" HorizontalOptions="Center" CornerRadius="15" Margin="0,-10,0,0" HasShadow="False"><!--BackgroundColor="{Binding BackgronColor}"-->
-                            <StackLayout Margin="0,45,0,0">
-                                <Label Text="Dia" TextColor="White"/><!--hacer bindings de esta informacion-->
-                                <Label Text="Hora" TextColor="White"/>
-                                <Label Text="Duracion" TextColor="White"/>
-                                <Label Text="Tipo de ejercicio" TextColor="White"/>
-                                <Label Text="Lugar de ejercitacion" TextColor="White"/>
-                                <Label Text="Herramienta de ejercicio" TextColor="White"/>
+                    <Grid RowDefinitions="20,*" Margin="10,10,0,0">
+                        <Frame Grid.Row="1" WidthRequest="250" HorizontalOptions="Center" CornerRadius="15" Margin="0,-10,0,0" HasShadow="False" BackgroundColor="Black">
+                            <StackLayout Margin="0,-20,0,0">
+                                <Label Text="{Binding DateTime}" TextColor="White"/>
+                                <Label Text="{Binding TimePickerr}" TextColor="White"/>
+                                <Label Text="{Binding duracion}" TextColor="White"/>
+                                <Label Text="{Binding tipoEjercico}" TextColor="White"/>
+                                <Label Text="{Binding lugarEjercico}" TextColor="White"/>
+                                <!--<Label Text="{Binding herramientaEjercico}" TextColor="White"/>
+                                <Label Text="{Binding pesoKG}" TextColor="White"/>-->
+                                <!-- proximamente -->
+                                <!--<Button Text="Editar" BackgroundColor="Orange" CornerRadius="25" FontAttributes="Bold" Command="{Binding Path=BindingContext.EditarCommand,Source={x:Reference List}}" CommandParameter="{Binding .}" />-->
+                                <!--Command="{Binding EditarCommand}" CommandParameter="{Binding .}"-->
+                                <!--<Button Text="ELiminar" BackgroundColor="Red" CornerRadius="25" FontAttributes="Bold" Command="{Binding Path=BindingContext.EliminarCommand,Source={x:Reference List}}" CommandParameter="{Binding .}" />-->
+                                <!--Command="{Binding EliminarCommand}" CommandParameter="{Binding Txtnro}"/>--><!--
+                                <Button Text="Completar" BackgroundColor="Green" CornerRadius="25" FontAttributes="Bold" Command="{Binding CompletarCommand}" CommandParameter="{Binding .}" />-->
                             </StackLayout>
                         </Frame>
-                        <Image Grid.RowSpan="2" HeightRequest="100" VerticalOptions="StartAndExpand"/><!--Source-->
                         <Grid.GestureRecognizers>
-                            <TapGestureRecognizer/><!--Command="{Binding Path=BindingContext.Detallescommand, Source={x:Reference Listas}}" CommandParameter="{Binding .}"-->
+                            <TapGestureRecognizer Command="{Binding Path=BindingContext.EditarCommand,Source={x:Reference List}}" CommandParameter="{Binding .}"/>
                         </Grid.GestureRecognizers>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
-        </CollectionView>
-        <Button Text="+" Grid.Row="1" HeightRequest="100" WidthRequest="100" VerticalOptions="End" HorizontalOptions="End" CornerRadius="50" Margin="15" FontSize="50" FontAttributes="Bold" BackgroundColor="Red"/><!--Command="{Binding Registrarcommand}"-->
+        </CollectionView> 
+        <Button Text="+" Grid.Row="1" HeightRequest="100" WidthRequest="100" VerticalOptions="End" HorizontalOptions="End" CornerRadius="50" Margin="15" FontSize="50" FontAttributes="Bold" BackgroundColor="Red" Command="{Binding RegistraECommand}"/><!--Command="{Binding Registrarcommand}"-->
     </Grid>
 </ContentPage>

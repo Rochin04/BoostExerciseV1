@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BoostExercise_RERM.ViewModel.VMBoostExercise;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace BoostExercise_RERM.View
         public Registra()
         {
             InitializeComponent();
+            BindingContext = new VMBoostRegistrar(Navigation);
         }
     }
 }

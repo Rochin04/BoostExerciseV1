@@ -61,3 +61,7 @@ C:\Users\emiro\source\repos\BoostExercise_RERM\BoostExercise_RERM.iOS\obj\iPhone
 C:\Users\emiro\source\repos\BoostExercise_RERM\BoostExercise_RERM.iOS\obj\iPhone\Debug\BoostExercise_RERM.iOS.csproj.CopyComplete
 C:\Users\emiro\source\repos\BoostExercise_RERM\BoostExercise_RERM.iOS\obj\iPhone\Debug\BoostExercise_RERM.iOS.exe
 C:\Users\emiro\source\repos\BoostExercise_RERM\BoostExercise_RERM.iOS\obj\iPhone\Debug\BoostExercise_RERM.iOS.pdb
+C:\Users\emiro\source\repos\BoostExercise_RERM\BoostExercise_RERM.iOS\bin\iPhone\Debug\Firebase.dll
+C:\Users\emiro\source\repos\BoostExercise_RERM\BoostExercise_RERM.iOS\bin\iPhone\Debug\LiteDB.dll
+C:\Users\emiro\source\repos\BoostExercise_RERM\BoostExercise_RERM.iOS\bin\iPhone\Debug\Newtonsoft.Json.dll
+C:\Users\emiro\source\repos\BoostExercise_RERM\BoostExercise_RERM.iOS\bin\iPhone\Debug\System.Reactive.dll

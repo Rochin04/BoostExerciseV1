@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BoostExercise_RERM.Model;
+using BoostExercise_RERM.ViewModel.VMBoostExercise;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,10 @@ namespace BoostExercise_RERM.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Editar : ContentPage
     {
-        public Editar()
+        public Editar(BoostExerciseModel parametros)
         {
             InitializeComponent();
+            BindingContext = new VMEditar(Navigation, parametros);
         }
     }
 }
